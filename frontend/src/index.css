@@ -235,3 +235,7 @@
 .hover-scale:hover {
   transform: scale(1.02);
 }
+
+.pause-animation {
+  animation-play-state: paused !important;
+}

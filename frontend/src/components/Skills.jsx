@@ -1,20 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Heading from './Heading'
+import {
+  SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs, SiExpress,
+  SiMongodb, SiPostgresql, SiRedux, SiTailwindcss, SiHtml5, SiCss3,
+  SiGit, SiGithub, SiRest, SiGraphql, SiDocker, SiAmazonaws,
+  SiFirebase, SiVercel, SiJest, SiTestinglibrary, SiWebpack, SiVite
+} from 'react-icons/si';
+// import { FaExchangeAlt } from 'react-icons/fa'; // from FontAwesome
+
 
 const Skills = () => {
-  const skillsRow1 = [
-    "JavaScript", "TypeScript", "React.js", "Next.js", "Node.js", "Express.js", 
-    "MongoDB", "PostgreSQL", "Redux", "TailwindCSS", "HTML5", "CSS3"
-  ]
+  const [isHovered, setIsHovered] = useState(false);
 
-  const skillsRow2 = [
-    "Git", "GitHub", "REST API", "GraphQL", "Docker", "AWS", 
-    "Firebase", "Vercel", "Jest", "React Testing Library", "Webpack", "Vite"
-  ]
+  const skillsData = {
+    row1: [
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "React.js", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+      { name: "Express.js", icon: SiExpress, color: "#000000" },
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
+      { name: "Redux", icon: SiRedux, color: "#764ABC" },
+      { name: "TailwindCSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+      { name: "CSS3", icon: SiCss3, color: "#1572B6" }
+    ],
+    row2: [
+      { name: "Git", icon: SiGit, color: "#F05032" },
+      { name: "GitHub", icon: SiGithub, color: "#181717" },
+      { name: "REST API", icon: SiRest, color: "#FF5733" },
+      { name: "GraphQL", icon: SiGraphql, color: "#E10098" },
+      { name: "Docker", icon: SiDocker, color: "#2496ED" },
+      { name: "AWS", icon: SiAmazonaws, color: "#232F3E" },
+      { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+      { name: "Vercel", icon: SiVercel, color: "#000000" },
+      { name: "Jest", icon: SiJest, color: "#C21325" },
+      { name: "Testing Library", icon: SiTestinglibrary, color: "#E33332" },
+      { name: "Webpack", icon: SiWebpack, color: "#8DD6F9" },
+      { name: "Vite", icon: SiVite, color: "#646CFF" }
+    ]
+  }
 
   return (
     <div className='mt-8'>
-      <div className='flex flex-col  mb-8'>
+      <div className='flex flex-col mb-8'>
         <Heading name="SKILLS & TECHNOLOGIES"/>
         {/* <h1 className='text-3xl md:text-4xl font-bold text-center relative'>
           Skills & Technologies
@@ -22,30 +53,44 @@ const Skills = () => {
         </h1> */}
       </div>
 
-      <div className='relative overflow-hidden   backdrop-blur-sm '>
+      <div 
+        className='relative overflow-hidden backdrop-blur-sm'
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {/* First Row - Moving Right */}
-        <div className='flex animate-scroll-right'>
+        <div className={`flex ${isHovered ? 'pause-animation' : 'animate-scroll-right'}`}>
           <div className='flex gap-8 px-4 animate-scroll whitespace-nowrap'>
-            {[...skillsRow1, ...skillsRow1].map((skill, index) => (
+            {[...skillsData.row1, ...skillsData.row1].map((skill, index) => (
               <div 
                 key={index} 
-                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-1 rounded border-[0.2px] border-[var(--primary-color)]/30 hover:bg-zinc-700/50 transition-colors duration-300'
+                className='flex items-center gap-1 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-[var(--primary-color)]/30 transition-all duration-300 cursor-default'
               >
-                <span className='text-white/80'>{skill}</span>
+                <skill.icon 
+                  size={20} 
+                  style={{ color: skill.color }} 
+                  className="transition-transform duration-200"
+                />
+                <span className='text-white/80'>{skill.name}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Second Row - Moving Left */}
-        <div className='flex animate-scroll-left mt-4'>
+        <div className={`flex ${isHovered ? 'pause-animation' : 'animate-scroll-left'} mt-4`}>
           <div className='flex gap-8 px-4 animate-scroll whitespace-nowrap'>
-            {[...skillsRow2, ...skillsRow2].map((skill, index) => (
+            {[...skillsData.row2, ...skillsData.row2].map((skill, index) => (
               <div 
                 key={index} 
-                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-1 rounded border-[0.2px] border-[var(--primary-color)]/30 hover:bg-zinc-700/50 transition-colors duration-300'
+                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-[var(--primary-color)]/30 transition-all duration-300 cursor-default'
               >
-                <span className='text-white/80'>{skill}</span>
+                <skill.icon 
+                  size={20} 
+                  style={{ color: skill.color }} 
+                  className="transition-transform duration-300"
+                />
+                <span className='text-white/80'>{skill.name}</span>
               </div>
             ))}
           </div>
