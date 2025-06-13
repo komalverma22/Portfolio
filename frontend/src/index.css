@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  height: 100%;
+}
+
 @layer base{
   :root{
      --primary-color: #62b5c4;
@@ -15,6 +19,9 @@
       linear-gradient(to right, rgba(242, 242, 242, 0.08) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(242, 242, 242, 0.08) 1px, transparent 1px);
     background-size: 40px 40px; /* Adjust grid cell size here */
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   ::selection {
@@ -189,6 +196,17 @@
   100% { opacity: 0; }
 }
 
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer utilities {
   .animate-tilt {
     animation: tilt 10s infinite linear;
@@ -243,6 +261,9 @@
   }
   .animate-grid-highlight {
     animation: grid-highlight ease-in-out infinite;
+  }
+  .animate-slide-in-up {
+    animation: slide-in-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
   
   .stagger-children > * {

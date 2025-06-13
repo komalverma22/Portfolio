@@ -52,7 +52,7 @@ const Projects = () => {
     }
   ];
 
-  const displayedProjects = showAll ? allProjects : allProjects.slice(0, 3);
+  const displayedProjects = showAll ? allProjects : allProjects.slice(0, 2);
 
   return (
     <div className='container mx-auto'>

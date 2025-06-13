@@ -56,25 +56,27 @@ const Education = () => {
             </div>
 
             {/* Content */}
-            <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-4 border-[0.2px] border-[var(--primary-color)]/30 hover:bg-zinc-800/90 hover-transition hover-scale relative">
+            <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-4 border-[0.2px] border-[var(--primary-color)]/30 hover:bg-zinc-800/90 hover-transition hover-scale relative overflow-visible">
               <h3 className="text-xl font-semibold text-white mb-1 flex items-center gap-2">
                 {edu.degree}
                 <Star size={19} className="text-[var(--primary-color)] animate-sparkle hover-transition" />
               </h3>
               <div className="text-[var(--primary-color)] mb-2 hover-transition">{edu.institution}</div>
-              <div className="flex items-center gap-2 text-sm text-white/60">
+              <div className="flex items-center gap-2 text-sm text-white/60 mb-4">
                 <Calendar size={19} className="animate-wiggle hover-transition" />
                 <span>{edu.duration}</span>
                 <span className="text-[var(--primary-color)] text-2xl hover-transition">•</span>
                 <span>{edu.location}</span>
-    </div>
+              </div>
 
               {/* Achievements Popup */}
               {(hoveredIndex === index || hoveredPopup) && (
                 <div 
-                  className={`absolute ${edu.showAchievementsOnLeft ? 'right-full mr-4' : 'left-full ml-4'} top-0 w-65 bg-zinc-900/95 backdrop-blur-sm rounded-lg p-2 border border-[var(--primary-color)]/30 shadow-lg shadow-[var(--primary-color)]/10 z-10 hover-transition ${
-                    edu.showAchievementsOnLeft ? 'animate-slide-in-left' : 'animate-slide-in-right'
-                  }`}
+                  className={`mt-4 w-full bg-zinc-900/95 backdrop-blur-sm rounded-lg p-2 border border-[var(--primary-color)]/30 shadow-lg shadow-[var(--primary-color)]/10 z-10 hover-transition animate-slide-in-up
+                    ${edu.showAchievementsOnLeft 
+                      ? 'md:absolute md:right-full md:mr-4 md:left-auto md:top-0 md:mt-0 md:w-65 md:animate-slide-in-left' 
+                      : 'md:absolute md:left-full md:ml-4 md:right-auto md:top-0 md:mt-0 md:w-65 md:animate-slide-in-right'
+                    }`}
                   onMouseEnter={() => setHoveredPopup(true)}
                   onMouseLeave={() => setHoveredPopup(false)}
                 >

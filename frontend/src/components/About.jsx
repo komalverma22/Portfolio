@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Profile from "../assets/images/profile-image.jpg"
+// import Profile from "../assets/images/profile-image.jpg"
 import Buttons from './Buttons'
 import Skills from './Skills'
 import Heading from './Heading'
@@ -46,7 +46,7 @@ const About = () => {
     <div className='pt-[82px] mb-16'>
       {/* Mobile Image - Only visible on mobile */}
       <div className='md:hidden mb-2 flex justify-center'>
-        <img src={Profile} alt="Profile" className='rounded-full w-28 h-28 object-cover' />
+        <img src="https://i.pinimg.com/736x/2b/7b/66/2b7b66b0ef840fcf89a97e8ef90d9f3b.jpg" alt="Profile" className='rounded-full w-28 h-28 object-cover' />
       </div>
 
       <div className='border-[0.2px] border-[var(--primary-color)]/30 backdrop-blur-sm rounded-lg p-6 shadow-lg'>

@@ -21,7 +21,7 @@ const Navbar = () => {
         behavior: 'smooth'
       });
     }
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Close menu after scroll
   };
 
   const navLinks = [
@@ -75,21 +75,40 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation (Slide-in from right) */}
       {isMenuOpen && (
-        <div className='fixed top-[60px] left-0 right-0 bg-[var(--bg-color)]/90 backdrop-blur-lg border-b border-[var(--text-color)]/20 md:hidden transition-colors duration-300'>
-          <div className='flex flex-col items-center py-6 gap-6'>
-            {navLinks.map((link) => (
-              <a 
-                key={link.label}
-                href={`#${link.href}`}
-                onClick={(e) => handleScroll(e, link.href)}
-                className='text-lg hover:opacity-70 transition-opacity duration-300 flex items-center gap-2 text-[var(--text-color)]'
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+          onClick={() => setIsMenuOpen(false)} // Close menu when clicking outside
+        >
+          <div 
+            className={`fixed top-0 right-0 h-full w-64 bg-[var(--bg-color)]/95 backdrop-blur-lg border-l border-[var(--text-color)]/20 shadow-lg p-6 transition-transform duration-300 ${
+              isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
+            onClick={(e) => e.stopPropagation()} // Prevent clicks inside from closing overlay
+          >
+            <div className="flex justify-end mb-8">
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="hover:opacity-70 transition-opacity duration-300 p-2 text-[var(--text-color)]"
+                aria-label="Close menu"
               >
-                {link.icon && <img src={link.icon} alt="" className="w-5 h-5" />}
-                {link.label}
-              </a>
-            ))}
+                <X size={24} />
+              </button>
+            </div>
+            <div className='flex flex-col items-start py-6 gap-6'>
+              {navLinks.map((link) => (
+                <a 
+                  key={link.label}
+                  href={`#${link.href}`}
+                  onClick={(e) => handleScroll(e, link.href)}
+                  className='text-lg hover:opacity-70 transition-opacity duration-300 flex items-center gap-2 text-[var(--text-color)] w-full py-2 px-4 rounded-md hover:bg-zinc-800/50'
+                >
+                  {link.icon && <img src={link.icon} alt="" className="w-5 h-5" />}
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       )}

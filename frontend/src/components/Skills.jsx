@@ -55,7 +55,7 @@ const Skills = () => {
       </div>
 
       <div 
-        className='relative overflow-hidden backdrop-blur-sm py-4'
+        className='relative overflow-hidden backdrop-blur-lg py-4'
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

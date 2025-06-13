@@ -4,11 +4,10 @@ import About from '../components/About'
 import Projects from './Projects'
 import Education from '../components/Education'
 import Contact from '../components/Contact'
-import Footer from '../components/Footer'
 
 const Hero = () => {
   return (
-    <div>
+    <div >
       <Navbar/>
       <div id="home">
       <About/>
@@ -22,7 +21,6 @@ const Hero = () => {
       <div id="contact">
         <Contact/>
       </div>
-      <Footer/>
     </div>
   )
 }
