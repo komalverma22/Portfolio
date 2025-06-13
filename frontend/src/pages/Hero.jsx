@@ -4,22 +4,29 @@ import About from '../components/About'
 import Projects from './Projects'
 import Education from '../components/Education'
 import Contact from '../components/Contact'
+import RevealOnScroll from '../components/RevealOnScroll'
 
 const Hero = () => {
   return (
-    <div >
+    <div className="">
       <Navbar/>
       <div id="home">
-      <About/>
+        <RevealOnScroll animationClass="animate-slide-in-left">
+          <About/>
+        </RevealOnScroll>
       </div>
       <div id="projects">
-      <Projects/>
+        <RevealOnScroll animationClass="animate-slide-in-right">
+          <Projects/>
+        </RevealOnScroll>
       </div>
       <div id="education">
-      <Education/>
+        <Education/>
       </div>
       <div id="contact">
-        <Contact/>
+        <RevealOnScroll animationClass="animate-slide-in-right">
+          <Contact/>
+        </RevealOnScroll>
       </div>
     </div>
   )

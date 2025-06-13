@@ -45,40 +45,40 @@ const About = () => {
   return (
     <div className='pt-[82px] mb-16'>
       {/* Mobile Image - Only visible on mobile */}
-      <div className='md:hidden mb-2 flex justify-center'>
-        <img src="https://i.pinimg.com/736x/2b/7b/66/2b7b66b0ef840fcf89a97e8ef90d9f3b.jpg" alt="Profile" className='rounded-full w-28 h-28 object-cover' />
+      <div className='md:hidden mb-2 flex justify-center opacity-0 animate-slide-in-left'>
+        <img src="https://i.pinimg.com/736x/2b/7b/66/2b7b66b0ef840fcf89a97e8ef90d9f3b.jpg" alt="Profile" className='rounded-full w-28 h-28 object-cover transition-transform duration-300 hover:scale-105' />
       </div>
 
       <div className='border-[0.2px] border-[var(--primary-color)]/30 backdrop-blur-sm rounded-lg p-6 shadow-lg'>
-        <div className="mb-4">
+        <div className="mb-4 opacity-0 animate-slide-in-left">
           {/* <div name="About Me" className="text-white"/> */}
           <h1 className='text-white/80 text-2xl font-bold '>ABOUT ME</h1>
         </div>
         
-        <div className='flex flex-col md:flex-row gap-0'>
+        <div className='flex flex-col md:flex-row gap-0 stagger-children'>
           {/* Content Section - full width on mobile, 70% on desktop */}
-          <div className='w-full md:w-[76%] space-y-3 text-lg text-white/80'>
-            <p className="text-xl">
+          <div className='w-full md:w-[76%] space-y-3 text-lg text-white/80 stagger-children opacity-0 animate-slide-up'>
+            <p className="text-xl opacity-0 animate-slide-up">
               Hey! I'm <span className='font-["Geist"] font-medium'>Komal Verma</span>, a{' '}
-              <span className="text-[var(--primary-color)] font-medium text-2xl">
+              <span className="text-[var(--primary-color)]  font-medium text-3xl">
                 {currentText}
               </span>
               {' '}
             </p>
-            <p className="text-xl">
+            <p className="text-xl opacity-0 animate-slide-up">
               I am a skilled and passionate web designer with experience in creating visually appearing and user-friendly websites.
             </p>
-            <p className='text-xl'>
+            <p className='text-xl opacity-0 animate-slide-up'>
            I enjoy learning new technologies and building digital products that solve real problems and bring joy to users.
             </p>
           </div>
 
           {/* Image Section - hidden on mobile, 30% on desktop */}
-          <div className='hidden md:block w-44 h-44'>
-            <img src="https://i.pinimg.com/736x/2b/7b/66/2b7b66b0ef840fcf89a97e8ef90d9f3b.jpg" alt="Profile" className='rounded-full w-full h-full object-cover' />
+          <div className='hidden md:block w-44 h-44 opacity-0 animate-slide-in-right'>
+            <img src="https://i.pinimg.com/736x/2b/7b/66/2b7b66b0ef840fcf89a97e8ef90d9f3b.jpg" alt="Profile" className='rounded-full w-full h-full object-cover transition-transform duration-300 hover:scale-105' />
           </div>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 opacity-0 animate-slide-up">
           <Buttons/>
         </div>
       </div>

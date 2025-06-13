@@ -65,7 +65,7 @@ html {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
   }
 }
 
@@ -76,42 +76,42 @@ html {
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-35px); }
 }
 
 @keyframes wiggle {
   0%, 100% { transform: rotate(0); }
-  25% { transform: rotate(-3deg); }
-  75% { transform: rotate(3deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
 }
 
 @keyframes pop {
   0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  50% { transform: scale(1.15); }
   100% { transform: scale(1); }
 }
 
 @keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
+  from { transform: translateY(30px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 5px var(--primary-color); }
-  50% { box-shadow: 0 0 15px var(--primary-color); }
+  0%, 100% { box-shadow: 0 0 8px var(--primary-color); }
+  50% { box-shadow: 0 0 20px var(--primary-color); }
 }
 
 @keyframes heartBeat {
   0%, 100% { transform: scale(1); }
-  25% { transform: scale(1.1); }
+  25% { transform: scale(1.2); }
   40% { transform: scale(1); }
-  60% { transform: scale(1.1); }
+  60% { transform: scale(1.2); }
 }
 
 @keyframes slide-in-right {
   from {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-40px);
   }
   to {
     opacity: 1;
@@ -122,7 +122,7 @@ html {
 @keyframes slide-in-left {
   from {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;
@@ -132,42 +132,42 @@ html {
 
 @keyframes twinkle {
   0% { 
-    opacity: 0.4;
-    transform: scale(0.9) rotate(-5deg);
+    opacity: 0.3;
+    transform: scale(0.8) rotate(-10deg);
   }
   50% { 
     opacity: 1;
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.2) rotate(10deg);
   }
   100% { 
-    opacity: 0.4;
-    transform: scale(0.9) rotate(-5deg);
+    opacity: 0.3;
+    transform: scale(0.8) rotate(-10deg);
   }
 }
 
 @keyframes twinkle-fade {
   0% {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.4);
   }
   25% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.1);
   }
   75% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.1);
   }
   100% {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.4);
   }
 }
 
 @keyframes fade-in-slow {
   0% {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(25px);
   }
   100% {
     opacity: 1;
@@ -177,29 +177,29 @@ html {
 
 @keyframes pulse-slow {
   0% { 
-    opacity: 0.6;
-    transform: scale(0.95);
+    opacity: 0.5;
+    transform: scale(0.9);
   }
   50% { 
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
   100% { 
-    opacity: 0.6;
-    transform: scale(0.95);
+    opacity: 0.5;
+    transform: scale(0.9);
   }
 }
 
 @keyframes grid-highlight {
   0% { opacity: 0; }
-  50% { opacity: 0.1; }
+  50% { opacity: 0.15; }
   100% { opacity: 0; }
 }
 
 @keyframes slide-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -207,89 +207,134 @@ html {
   }
 }
 
+@keyframes text-3d-pulse {
+  0%, 100% {
+    text-shadow: 
+      1px 1px var(--primary-color),
+      2px 2px var(--primary-color),
+      1px 1px rgba(0, 0, 0, 0.4); 
+  }
+  50% {
+    text-shadow: 
+      1px 1px rgba(0, 0, 0, 0.6); 
+  }
+}
+
+@keyframes border-spin {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
 @layer utilities {
   .animate-tilt {
-    animation: tilt 10s infinite linear;
+    animation: tilt 15s infinite linear;
   }
   .animate-scroll-right {
-    animation: scroll-right 30s linear infinite;
+    animation: scroll-right 45s linear infinite;
   }
   .animate-scroll-left {
-    animation: scroll-left 30s linear infinite;
+    animation: scroll-left 45s linear infinite;
   }
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4.5s ease-in-out infinite;
   }
   .animate-sparkle {
-    animation: sparkle 2s ease-in-out infinite;
+    animation: sparkle 3s ease-in-out infinite;
   }
   .animate-bounce-slow {
-    animation: bounce 3s ease-in-out infinite;
+    animation: bounce 4.5s ease-in-out infinite;
   }
   .animate-wiggle {
-    animation: wiggle 2s ease-in-out infinite;
+    animation: wiggle 3s ease-in-out infinite;
   }
   .animate-pop {
-    animation: pop 0.3s ease-in-out;
+    animation: pop 0.5s ease-in-out;
   }
   .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
+    animation: slideUp 0.8s ease-out forwards;
   }
   .animate-glow {
-    animation: glowPulse 2s ease-in-out infinite;
+    animation: glowPulse 3s ease-in-out infinite;
   }
   .animate-heart {
-    animation: heartBeat 1.5s ease-in-out infinite;
+    animation: heartBeat 2.25s ease-in-out infinite;
   }
   .animate-slide-in-right {
-    animation: slide-in-right 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: slide-in-right 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
   .animate-slide-in-left {
-    animation: slide-in-left 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: slide-in-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
   .animate-twinkle {
-    animation: twinkle 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: twinkle 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
   .animate-twinkle-fade {
-    animation: twinkle-fade ease-in-out infinite;
+    animation: twinkle-fade 8s ease-in-out infinite;
   }
   .animate-fade-in-slow {
-    animation: fade-in-slow 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fade-in-slow 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
   .animate-pulse-slow {
-    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: pulse-slow 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
   .animate-grid-highlight {
-    animation: grid-highlight ease-in-out infinite;
+    animation: grid-highlight 10s ease-in-out infinite;
   }
   .animate-slide-in-up {
-    animation: slide-in-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: slide-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
   
   .stagger-children > * {
     opacity: 0;
-    animation: slideUp 0.5s ease-out forwards;
+    animation: slideUp 0.8s ease-out forwards;
   }
   
-  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
-  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
-  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
-  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
-  .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
-  .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+  .stagger-children > *:nth-child(1) { animation-delay: 0.15s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.45s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.6s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.75s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.9s; }
+
+  .text-3d {
+    text-shadow: 
+      1px 1px var(--primary-color),
+      2px 2px var(--primary-color),
+      3px 3px var(--primary-color),
+      4px 4px rgba(0, 0, 0, 0.4); /* Initial shadow for depth */
+    animation: text-3d-pulse 3s ease-in-out infinite alternate;
+  }
+
+  .border-line {
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    background-size: 200% 200%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: inherit; /* Inherit border-radius from parent */
+  }
+
+  .animate-border-spin {
+    animation: border-spin 4s linear infinite;
+  }
 }
 
 /* Add smooth transitions for hover effects */
 .hover-transition {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-scale {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-scale:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .pause-animation {

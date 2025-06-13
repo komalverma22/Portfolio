@@ -45,14 +45,14 @@ const Contact = () => {
 
   return (
     <div className="mt-8 mb-16">
-      <div className="mb-8">
+      <div className="mb-8 opacity-0 animate-slide-up">
         <Heading name="GET IN TOUCH" />
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 stagger-children">
         {/* Left Side - Contact Info */}
-        <div className="space-y-6 animate-slide-up">
-          <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300">
+        <div className="space-y-6 opacity-0 animate-slide-up stagger-children">
+          <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
             <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
               Let's Connect <Coffee size={20} className="text-[var(--primary-color)] animate-wiggle" />
             </h3>
@@ -74,7 +74,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300">
+          <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
             <div className="flex items-center gap-2 text-white/80 mb-4">
               <Heart size={16} className="text-[var(--primary-color)] animate-heart" />
               <span>Looking forward to hearing from you!</span>
@@ -86,9 +86,9 @@ const Contact = () => {
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 animate-slide-up">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
+        <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
+          <form onSubmit={handleSubmit} className="space-y-4 stagger-children">
+            <div className="opacity-0 animate-slide-up">
               <label htmlFor="name" className="block text-sm text-white/70 mb-2">
                 Your Name <span className="text-[var(--primary-color)] animate-pulse">*</span>
               </label>
@@ -103,7 +103,7 @@ const Contact = () => {
                 placeholder="John Doe"
               />
             </div>
-            <div>
+            <div className="opacity-0 animate-slide-up">
               <label htmlFor="email" className="block text-sm text-white/70 mb-2">
                 Your Email <span className="text-[var(--primary-color)] animate-pulse">*</span>
               </label>
@@ -118,7 +118,7 @@ const Contact = () => {
                 placeholder="john@example.com"
               />
             </div>
-            <div>
+            <div className="opacity-0 animate-slide-up">
               <label htmlFor="message" className="block text-sm text-white/70 mb-2">
                 Your Message <span className="text-[var(--primary-color)] animate-pulse">*</span>
               </label>
@@ -136,7 +136,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-2.5 px-4 rounded-lg bg-[var(--primary-color)] text-zinc-900 font-medium hover:bg-[var(--primary-color)]/90 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 hover:animate-glow"
+              className="w-full py-2.5 px-4 rounded-lg bg-[var(--primary-color)] text-zinc-900 font-medium hover:bg-[var(--primary-color)]/90 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 hover:animate-glow opacity-0 animate-slide-up"
             >
               {isSubmitting ? (
                 <Sparkles size={18} className="animate-spin" />
