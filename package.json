@@ -2,5 +2,8 @@
   "dependencies": {
     "lucide": "^0.514.0",
     "lucide-react": "^0.514.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }

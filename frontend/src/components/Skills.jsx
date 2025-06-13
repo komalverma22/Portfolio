@@ -3,8 +3,9 @@ import Heading from './Heading'
 import {
   SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs, SiExpress,
   SiMongodb, SiPostgresql, SiRedux, SiTailwindcss, SiHtml5, SiCss3,
-  SiGit, SiGithub, SiRest, SiGraphql, SiDocker, SiAmazonaws,
-  SiFirebase, SiVercel, SiJest, SiTestinglibrary, SiWebpack, SiVite
+  SiGit, SiGithub, SiGraphql, SiDocker,
+  SiFirebase, SiVercel, SiJest, SiTestinglibrary, SiWebpack, SiVite,
+  SiAwsamplify // instead of SiAmazon
 } from 'react-icons/si';
 // import { FaExchangeAlt } from 'react-icons/fa'; // from FontAwesome
 
@@ -30,10 +31,10 @@ const Skills = () => {
     row2: [
       { name: "Git", icon: SiGit, color: "#F05032" },
       { name: "GitHub", icon: SiGithub, color: "#181717" },
-      { name: "REST API", icon: SiRest, color: "#FF5733" },
+      // { name: "REST API", icon: SiRest, color: "#FF5733" },
       { name: "GraphQL", icon: SiGraphql, color: "#E10098" },
       { name: "Docker", icon: SiDocker, color: "#2496ED" },
-      { name: "AWS", icon: SiAmazonaws, color: "#232F3E" },
+      // { name: "AWS", icon: SiAmazonaws, color: "#232F3E" },
       { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
       { name: "Vercel", icon: SiVercel, color: "#000000" },
       { name: "Jest", icon: SiJest, color: "#C21325" },
@@ -54,22 +55,22 @@ const Skills = () => {
       </div>
 
       <div 
-        className='relative overflow-hidden backdrop-blur-sm'
+        className='relative overflow-hidden backdrop-blur-sm py-4'
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* First Row - Moving Right */}
         <div className={`flex ${isHovered ? 'pause-animation' : 'animate-scroll-right'}`}>
-          <div className='flex gap-8 px-4 animate-scroll whitespace-nowrap'>
+          <div className='flex gap-5 px-4 animate-scroll whitespace-nowrap'>
             {[...skillsData.row1, ...skillsData.row1].map((skill, index) => (
               <div 
                 key={index} 
-                className='flex items-center gap-1 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-[var(--primary-color)]/30 transition-all duration-300 cursor-default'
+                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-white/30 hover:bg-zinc-700/50 transition-all duration-000 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary-color)]/10'
               >
                 <skill.icon 
                   size={20} 
                   style={{ color: skill.color }} 
-                  className="transition-transform duration-200"
+                  className="transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className='text-white/80'>{skill.name}</span>
               </div>
@@ -83,12 +84,12 @@ const Skills = () => {
             {[...skillsData.row2, ...skillsData.row2].map((skill, index) => (
               <div 
                 key={index} 
-                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-[var(--primary-color)]/30 transition-all duration-300 cursor-default'
+                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-white/30 hover:bg-zinc-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary-color)]/10'
               >
                 <skill.icon 
                   size={20} 
                   style={{ color: skill.color }} 
-                  className="transition-transform duration-300"
+                  className="transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className='text-white/80'>{skill.name}</span>
               </div>

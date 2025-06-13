@@ -39,7 +39,7 @@ const Education = () => {
       <div className="mb-8">
         <Heading name="EDUCATION"/>
       </div>
-
+        
       <div className="space-y-8 stagger-children">
         {educationData.map((edu, index) => (
           <div 
@@ -67,7 +67,7 @@ const Education = () => {
                 <span>{edu.duration}</span>
                 <span className="text-[var(--primary-color)] text-2xl hover-transition">•</span>
                 <span>{edu.location}</span>
-              </div>
+    </div>
 
               {/* Achievements Popup */}
               {(hoveredIndex === index || hoveredPopup) && (
