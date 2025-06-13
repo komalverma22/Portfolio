@@ -31,6 +31,13 @@ const Education = () => {
     }
   ]
 
+  const achievements = [
+    "Secured 1st position in Web Development Competition",
+    "Completed 100+ DSA Problems",
+    "Built 10+ Full Stack Projects",
+    "Active Open Source Contributor"
+  ]
+
   return (
     <div className="mt-8">
       <div className="mb-8">
@@ -54,13 +61,13 @@ const Education = () => {
             <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-4 border-[0.2px] border-[var(--primary-color)]/30 hover:bg-zinc-800/90 transition-all duration-300 group-hover:scale-[1.02] group-hover:animate-glow">
               <h3 className="text-xl font-semibold text-white mb-1 flex items-center gap-2">
                 {edu.degree}
-                <Star size={16} className="text-[var(--primary-color)] animate-sparkle" />
+                <Star size={19} className="text-[var(--primary-color)] animate-sparkle" />
               </h3>
               <div className="text-[var(--primary-color)] mb-2">{edu.institution}</div>
               <div className="flex items-center gap-2 text-sm text-white/60 mb-3">
-                <Calendar size={14} className="animate-wiggle" />
+                <Calendar size={19} className="animate-wiggle" />
                 <span>{edu.duration}</span>
-                <span className="text-[var(--primary-color)]">•</span>
+                <span className="text-[var(--primary-color)] text-2xl">•</span>
                 <span>{edu.location}</span>
               </div>
               <div className="text-white/80 mb-2">{edu.grade}</div>
@@ -78,6 +85,46 @@ const Education = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-16">
+        <Heading name="Education" />
+        <div className="mt-8 border-[0.2px] border-[var(--primary-color)]/30 backdrop-blur-sm rounded-lg p-5 shadow-lg">
+          <div className="flex flex-col md:flex-row gap-8">
+            {/* Education Details */}
+            <div className="w-full md:w-[60%] space-y-4">
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold text-white">Bachelor of Technology in Computer Science</h3>
+                <p className="text-white/80">Guru Gobind Singh Indraprastha University</p>
+                <p className="text-white/60 text-sm">2020 - 2024</p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold text-white">Senior Secondary Education</h3>
+                <p className="text-white/80">Delhi Public School, Rohini</p>
+                <p className="text-white/60 text-sm">2018 - 2020</p>
+              </div>
+            </div>
+
+            {/* Achievements */}
+            <div className="w-full md:w-[40%]">
+              <h3 className="text-xl font-semibold text-white mb-4">Achievements</h3>
+              <div className="space-y-3">
+                {achievements.map((achievement, index) => (
+                  <div
+                    key={index}
+                    className="group relative bg-white/5 p-3 rounded-lg border border-[var(--primary-color)]/20 hover:border-[var(--primary-color)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--primary-color)]/10"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-color)]/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <p className="relative text-white/80 group-hover:text-white transition-colors duration-300">
+                      {achievement}
+                    </p>
+                    <div className="absolute -right-2 -top-2 w-4 h-4 bg-[var(--primary-color)] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-0 group-hover:scale-100"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

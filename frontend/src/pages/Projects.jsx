@@ -24,14 +24,7 @@ const Projects = () => {
       liveLink: "#",
       image: "/projects/ecommerce.png"
     },
-    {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates and team features.",
-      technologies: ["React", "Firebase", "Material UI"],
-      githubLink: "https://github.com/yourusername/task-manager",
-      liveLink: "#",
-      image: "/projects/task-manager.png"
-    },
+   
     // Additional projects that will be shown when "View More" is clicked
     {
       title: "Weather Dashboard",

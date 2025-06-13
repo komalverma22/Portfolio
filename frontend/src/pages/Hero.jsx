@@ -11,13 +11,13 @@ const Hero = () => {
     <div>
       <Navbar/>
       <div id="home">
-        <About/>
+      <About/>
       </div>
       <div id="projects">
-        <Projects/>
+      <Projects/>
       </div>
       <div id="education">
-        <Education/>
+      <Education/>
       </div>
       <div id="contact">
         <Contact/>

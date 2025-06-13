@@ -27,7 +27,7 @@ const Navbar = () => {
   const navLinks = [
     { href: "home", label: "Home", icon: HomeImg },
     { href: "projects", label: "Projects", icon: BlogImg },
-    { href: "education", label: "Education", icon: NotesImg }
+    { href: "education", label: "Blog", icon: NotesImg }
   ];
 
   return (
