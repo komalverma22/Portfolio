@@ -28,7 +28,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="py-8 border-t-[0.2px] border-[var(--primary-color)]/30 backdrop-blur-sm">
+    <footer className="py-4 border-t-[0.2px] border-[var(--primary-color)]/30 backdrop-blur-lg">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center gap-6">
           {/* Logo Section */}
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60">
+          <div className="flex flex-wrap justify-center gap-6 text-lg text-white/60">
             {navLinks.map((link) => (
               <a
                 key={link.href}
