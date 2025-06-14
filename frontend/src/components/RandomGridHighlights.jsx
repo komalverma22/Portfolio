@@ -5,7 +5,7 @@ const RandomGridHighlights = () => {
 
   useEffect(() => {
     const generateHighlights = () => {
-      const numHighlights = 20; // Number of glowing squares
+      const numHighlights = 30; // Number of glowing squares
       const gridSize = 40; // Matches your background-size
       const newHighlights = [];
 

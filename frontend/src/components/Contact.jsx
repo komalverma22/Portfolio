@@ -63,10 +63,10 @@ const Contact = () => {
                   href={info.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-white/70 hover:text-white transition-all duration-300 group hover:translate-x-2"
+                  className="flex items-center gap-3 text-white hover:text-white transition-all duration-300 group hover:translate-x-2"
                 >
-                  <div className="p-2 bg-zinc-800/50 rounded-lg border-[0.2px] border-[var(--primary-color)]/30 group-hover:border-[var(--primary-color)]/50 transition-all duration-300 group-hover:animate-bounce-slow">
-                    <info.icon size={16} className="text-[var(--primary-color)]" />
+                  <div className="p-2 rounded-sm border-[0.2px] border-white/20 group-hover:border-white/50 transition-all duration-300 group-hover:animate-bounce-slow">
+                    <info.icon size={16} className="text-white-700" />
                   </div>
                   <span>{info.text}</span>
                 </a>
@@ -86,7 +86,7 @@ const Contact = () => {
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
+        <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg px-6 py-4 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
           <form onSubmit={handleSubmit} className="space-y-4 stagger-children">
             <div className="opacity-0 animate-slide-up">
               <label htmlFor="name" className="block text-sm text-white/70 mb-2">
@@ -99,8 +99,8 @@ const Contact = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded-lg bg-zinc-800/50 border-[0.2px] border-[var(--primary-color)]/30 text-white/90 focus:outline-none focus:border-[var(--primary-color)]/50 transition-all duration-300 focus:animate-glow"
-                placeholder="John Doe"
+                className="w-full px-4 py-1.5 rounded-sm bg-zinc-800/50 border-[0.2px] border-white/20 text-white/90 focus:outline-none focus:border-white/50 transition-all duration-300 focus:animate-glow"
+                placeholder="Enter your name"
               />
             </div>
             <div className="opacity-0 animate-slide-up">
@@ -114,8 +114,8 @@ const Contact = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded-lg bg-zinc-800/50 border-[0.2px] border-[var(--primary-color)]/30 text-white/90 focus:outline-none focus:border-[var(--primary-color)]/50 transition-all duration-300 focus:animate-glow"
-                placeholder="john@example.com"
+                className="w-full px-4 py-1.5 rounded-sm bg-zinc-800/50 border-[0.2px] border-white/20 text-white/90 focus:outline-none focus:border-white/50 transition-all duration-300 focus:animate-glow"
+                placeholder="xyz@example.com"
               />
             </div>
             <div className="opacity-0 animate-slide-up">
@@ -128,15 +128,15 @@ const Contact = () => {
                 required
                 value={formData.message}
                 onChange={handleChange}
-                rows="4"
-                className="w-full px-4 py-2 rounded-lg bg-zinc-800/50 border-[0.2px] border-[var(--primary-color)]/30 text-white/90 focus:outline-none focus:border-[var(--primary-color)]/50 transition-all duration-300 resize-none focus:animate-glow"
+                rows="3"
+                className="w-full px-4 py-1.5 rounded-sm bg-zinc-800/50 border-[0.2px] border-white/20 text-white/90 focus:outline-none focus:border-white/50 transition-all duration-300 resize-none focus:animate-glow"
                 placeholder="Hi there! I'd like to talk about..."
               />
             </div>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-2.5 px-4 rounded-lg bg-[var(--primary-color)] text-zinc-900 font-medium hover:bg-[var(--primary-color)]/90 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 hover:animate-glow opacity-0 animate-slide-up"
+              className="w-1/2 mx-auto py-2.5 px-4 text-md rounded-lg bg-white/70 text-zinc-900 font-medium transition-all duration-300 ease-in-out flex items-center justify-center gap-2 group disabled:opacity-70 hover:animate-glow hover:scale-[1.02] hover:bg-black/80 hover:text-white opacity-0 animate-slide-up"
             >
               {isSubmitting ? (
                 <Sparkles size={18} className="animate-spin" />

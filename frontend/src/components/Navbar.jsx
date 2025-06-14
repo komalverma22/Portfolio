@@ -31,7 +31,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='fixed top-0 left-0 right-0 z-50 bg-[var(--bg-color)]/10 backdrop-blur-lg shadow-lg transition-colors duration-300'>
+    <div className='fixed top-0 left-0 right-0 z-50  backdrop-blur-lg shadow-lg  duration-300'>
       <div className='max-w-[2000px] mx-auto'>
         <div className='flex justify-between items-center h-[60px] px-4 sm:px-6 md:px-8 lg:px-16 xl:px-80'>
           {/* Theme Toggle */}
