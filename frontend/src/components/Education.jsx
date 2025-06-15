@@ -4,7 +4,6 @@ import { GraduationCap, Calendar, Star, Trophy, Sparkles } from 'lucide-react'
 
 const Education = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [hoveredPopup, setHoveredPopup] = useState(false);
   const [visibleItems, setVisibleItems] = useState(new Map());
   const itemRefs = useRef([]);
 
@@ -64,6 +63,17 @@ const Education = () => {
     };
   }, []);
 
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = (index) => {
+    // Add a small delay to prevent flickering when moving between card and popup
+    setTimeout(() => {
+      setHoveredIndex(null);
+    }, 1000);
+  };
+
   return (
     <div className="mt-8">
       <div className="mb-8">
@@ -73,6 +83,8 @@ const Education = () => {
       <div className="space-y-8">
         {educationData.map((edu, index) => {
           const isVisible = visibleItems.get(index);
+          const isHovered = hoveredIndex === index;
+          
           return (
             <div 
               key={index}
@@ -83,8 +95,8 @@ const Education = () => {
                   ? (edu.showAchievementsOnLeft ? 'translate-x-0 opacity-100 animate-slide-in-left' : 'translate-x-0 opacity-100 animate-slide-in-right')
                   : (edu.showAchievementsOnLeft ? '-translate-x-full opacity-0' : 'translate-x-full opacity-0')
                 }`}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => !hoveredPopup && setHoveredIndex(null)}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
             >
               {/* Timeline line */}
               <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-[var(--primary-color)]/20 group-last:bg-transparent">
@@ -108,15 +120,9 @@ const Education = () => {
                 </div>
 
                 {/* Achievements Popup */}
-                {(hoveredIndex === index || hoveredPopup) && (
+                {isHovered && (
                   <div 
-                    className={`mt-4 w-full bg-zinc-900/95 backdrop-blur-sm rounded-lg p-2 border border-[var(--primary-color)]/30 shadow-lg shadow-[var(--primary-color)]/10 z-10 hover-transition animate-slide-in-up
-                      ${edu.showAchievementsOnLeft 
-                        ? 'md:absolute md:right-full md:mr-4 md:left-auto md:top-0 md:mt-0 md:w-65 md:animate-slide-in-left' 
-                        : 'md:absolute md:left-full md:ml-4 md:right-auto md:top-0 md:mt-0 md:w-65 md:animate-slide-in-right'
-                      }`}
-                    onMouseEnter={() => setHoveredPopup(true)}
-                    onMouseLeave={() => setHoveredPopup(false)}
+                    className="mt-4 w-full bg-zinc-900/95 backdrop-blur-sm rounded-lg p-2 border border-[var(--primary-color)]/30 shadow-lg shadow-[var(--primary-color)]/10 z-10 hover-transition animate-slide-in-up"
                   >
                     <div className="flex items-center gap-2 mb-3 text-[var(--primary-color)]">
                       <Trophy size={18} className="animate-bounce hover-transition" />
@@ -129,10 +135,9 @@ const Education = () => {
                       {edu.achievements.map((achievement, i) => (
                         <div 
                           key={i} 
-                          className="flex items-start gap-2 text-sm text-white/80 hover:text-white hover-transition animate-fade-in-slow hover:translate-x-1"
+                          className="flex items-start gap-2 text-md text-white/80 hover:text-white hover-transition animate-fade-in-slow hover:translate-x-1"
                           style={{ 
                             animationDelay: `${i * 250}ms`,
-                            transform: edu.showAchievementsOnLeft ? 'translateX(0)' : 'translateX(0)',
                             transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                           }}
                         >

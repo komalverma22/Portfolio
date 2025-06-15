@@ -22,7 +22,7 @@ const Projects = () => {
       technologies: ["React", "Node.js", "MongoDB", "Express"],
       githubLink: "https://github.com/yourusername/ecommerce",
       liveLink: "#",
-      image: "/projects/ecommerce.png"
+      image: "https://i.pinimg.com/736x/7e/b2/59/7eb25902a8706d9ae8ea78816da60a03.jpg"
     },
    
     // Additional projects that will be shown when "View More" is clicked
