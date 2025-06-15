@@ -5,7 +5,9 @@ import { GraduationCap, Calendar, Star, Trophy, Sparkles } from 'lucide-react'
 const Education = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [visibleItems, setVisibleItems] = useState(new Map());
+  const [touchDevice, setTouchDevice] = useState(false);
   const itemRefs = useRef([]);
+  const hoverTimeoutRef = useRef(null);
 
   const educationData = [
     {
@@ -34,6 +36,18 @@ const Education = () => {
       showAchievementsOnLeft: true
     }
   ]
+
+  // Detect touch device
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      setTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    
+    checkTouchDevice();
+    window.addEventListener('resize', checkTouchDevice);
+    
+    return () => window.removeEventListener('resize', checkTouchDevice);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,15 +78,37 @@ const Education = () => {
   }, []);
 
   const handleMouseEnter = (index) => {
+    if (touchDevice) return;
+    
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
     setHoveredIndex(index);
   };
 
   const handleMouseLeave = (index) => {
+    if (touchDevice) return;
+    
     // Add a small delay to prevent flickering when moving between card and popup
-    setTimeout(() => {
+    hoverTimeoutRef.current = setTimeout(() => {
       setHoveredIndex(null);
-    }, 1000);
+    }, 100);
   };
+
+  const handleClick = (index) => {
+    if (touchDevice) {
+      setHoveredIndex(hoveredIndex === index ? null : index);
+    }
+  };
+
+  // Clear timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="mt-8">
@@ -94,13 +130,16 @@ const Education = () => {
                 ${isVisible 
                   ? (edu.showAchievementsOnLeft ? 'translate-x-0 opacity-100 animate-slide-in-left' : 'translate-x-0 opacity-100 animate-slide-in-right')
                   : (edu.showAchievementsOnLeft ? '-translate-x-full opacity-0' : 'translate-x-full opacity-0')
-                }`}
+                }
+                ${touchDevice ? 'cursor-pointer' : ''}
+              `}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
+              onClick={() => handleClick(index)}
             >
               {/* Timeline line */}
               <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-[var(--primary-color)]/20 group-last:bg-transparent">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-[0.2px] border-[var(--primary-color)]/30 flex items-center justify-center group-hover:animate-bounce-slow hover-transition">
+                <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-[0.2px] border-[var(--primary-color)]/30 flex items-center justify-center group-hover:animate-bounce-slow hover-transition`}>
                   <GraduationCap size={12} className="text-[var(--primary-color)]" />
                 </div>
               </div>
@@ -111,7 +150,11 @@ const Education = () => {
                   {edu.degree}
                   <Star size={19} className="text-[var(--primary-color)] animate-sparkle hover-transition" />
                 </h3>
-                <div className="text-[var(--primary-color)] mb-2 hover-transition">{edu.institution}</div>
+                
+                <div className="text-[var(--primary-color)] mb-2 hover-transition">
+                  {edu.institution}
+                </div>
+                
                 <div className="flex items-center gap-2 text-sm text-white/60 mb-4">
                   <Calendar size={19} className="animate-wiggle hover-transition" />
                   <span>{edu.duration}</span>
@@ -131,6 +174,7 @@ const Education = () => {
                         <Sparkles size={16} className="animate-twinkle hover-transition" />
                       </h4>
                     </div>
+                    
                     <div className="space-y-2">
                       {edu.achievements.map((achievement, i) => (
                         <div 

@@ -54,7 +54,7 @@ const Contact = () => {
         <div className="space-y-6 opacity-0 animate-slide-up stagger-children">
           <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
             <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-              Let's Connect <Coffee size={20} className="text-[var(--primary-color)] animate-wiggle" />
+             <a href=""> Buy Me A Coffee⁠♡</a><Coffee size={25} className="text-[var(--primary-color)] animate-wiggle mb-2" />
             </h3>
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
@@ -136,7 +136,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-1/2 mx-auto py-2.5 px-4 text-md rounded-lg bg-white/70 text-zinc-900 font-medium transition-all duration-300 ease-in-out flex items-center justify-center gap-2 group disabled:opacity-70 hover:animate-glow hover:scale-[1.02] hover:bg-black/80 hover:text-white opacity-0 animate-slide-up"
+              className="w-1/2 mx-auto py-2.5 px-4 text-md rounded-lg bg-white/60 text-zinc-900 font-medium transition-all duration-300 ease-in-out flex items-center justify-center gap-2 group disabled:opacity-70 hover:animate-glow hover:scale-[1.02] h  opacity-0 animate-slide-up"
             >
               {isSubmitting ? (
                 <Sparkles size={18} className="animate-spin" />
