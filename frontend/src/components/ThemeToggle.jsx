@@ -24,7 +24,7 @@ const ThemeToggle = () => {
       className="relative group rounded-full transition-all duration-300 hover:bg-zinc-800/20"
       aria-label="Toggle theme"
     >
-      <div className="relative w-14 h-7 flex items-center rounded-full p-1 bg-zinc-900/90 dark:bg-zinc-800/90 border-[0.5px] border-[var(--primary-color)]">
+      <div className="relative w-14 h-7 flex items-center rounded-full p-1 bg-zinc-900/90 dark:bg-zinc-800/90 border-[0.5px] border-[var(--border-color)]">
         <div
           className={`absolute w-5 h-5 rounded-full bg-[var(--primary-color)] transition-transform duration-300 flex items-center justify-center
             ${isDark ? 'translate-x-7' : 'translate-x-0'}`}

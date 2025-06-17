@@ -69,7 +69,7 @@ const Projects = () => {
       <div className="flex justify-center mt-6 sm:mt-8 opacity-0 animate-slide-up" style={{ animationDelay: '0.2s' }}>
         <button
           onClick={() => setShowAll(!showAll)}
-          className="group flex items-center gap-2 px-3 py-2   sm:px-6 sm:py-2 rounded-lg bg-zinc-900/90 backdrop-blur-sm border-[0.2px] border-[var(--primary-color)]/30 hover:bg-zinc-800/90 transition-all duration-300"
+          className="group flex items-center gap-2 px-3 py-2   sm:px-6 sm:py-2 rounded-lg bg-zinc-900/90 backdrop-blur-sm border-[0.2px] border-[var(--border-color)] hover:bg-zinc-800/90 transition-all duration-300"
         >
           <span className="text-white/80 group-hover:text-white transition-colors duration-300 text-sm sm:text-base">
             {showAll ? 'View Less' : 'View More'}

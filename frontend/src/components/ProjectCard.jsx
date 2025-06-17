@@ -3,13 +3,13 @@ import { Github, ExternalLink, Sparkles } from 'lucide-react';
 
 const ProjectCard = ({ title, description, technologies, githubLink, liveLink, image }) => {
   return (
-    <div className="project-card group relative overflow-hidden border-[var(--primary-color)]/30 transition-all duration-600 mt-4 hover:scale-[1.0] hover:animate-glow ">
+    <div className="project-card group relative overflow-hidden border-[var(--border-color)] transition-all duration-600 mt-4 hover:scale-[1.0] hover:animate-glow ">
       {/* Project Image Container */}
       <div className="relative mb-4 h-62 sm:h-76 md:h-64 lg:h-76 w-full overflow-hidden rounded-sm ">
         <img
           src={image}
           alt={title}
-          className="h-full w-full object-cover object-center transition-transform duration-800 group-hover:scale-108"
+          className="h-full w-full object-cover object-center transition-transform duration-800 group-hover:scale-108 "
           loading="lazy"
           decoding="async"
         />
@@ -67,7 +67,7 @@ const ProjectCard = ({ title, description, technologies, githubLink, liveLink, i
         {technologies.map((tech, index) => (
           <span
             key={index}
-            className="px-2 sm:px-4 py-1 sm:py-2 text-xs rounded-md bg-[var(--primary-color)]/10 text-[var(--primary-color)] border-[0.2px] border-[var(--primary-color)]/20 cursor-default "
+            className="px-2 sm:px-4 py-1 sm:py-2 text-xs rounded-md bg-[var(--primary-color)]/10 text-[var(--primary-color)] border-[0.2px] border-[var(--border-color)] cursor-default "
           >
             {tech}
           </span>

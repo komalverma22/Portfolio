@@ -10,24 +10,176 @@ html {
      --bg-color: #09090b;
      --text-color: #ffffff;
      --grid-color: rgba(242, 242, 242, 0.08);
+     --border-color: rgba(9, 178, 208, 0.3);
   }
 
   /* Light mode variables */
   [data-theme="light"] {
     --bg-color: #ffffff;
-    --text-color: #1a1a1a;
+    --text-color: #000000;
     --grid-color: rgba(0, 0, 0, 0.08);
+    --border-color: rgba(9, 178, 208, 0.4);
+  }
+
+  /* Light theme background image */
+  [data-theme="light"] body {
+    /* background-image: url('./assets/images/forest.gif'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  /* Make grid overlay more subtle in light theme */
+  [data-theme="light"] body::before {
+    opacity: 0.3;
   }
 
   /* Additional light mode adjustments */
   [data-theme="light"] .content-grid-area {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Ensure content areas have proper contrast against the background image */
+  [data-theme="light"] .bg-zinc-900\/90,
+  [data-theme="light"] .bg-zinc-900\/95 {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 
   [data-theme="light"] ::selection {
     background-color: var(--primary-color);
     color: #ffffff;
+  }
+
+  /* Remove black background boxes in light theme */
+  [data-theme="light"] .bg-zinc-900,
+  [data-theme="light"] .bg-zinc-900\/90,
+  [data-theme="light"] .bg-zinc-900\/95 {
+    background-color: transparent !important;
+  }
+
+  [data-theme="light"] .bg-black\/80,
+  [data-theme="light"] .bg-black\/89 {
+    background-color: transparent !important;
+  }
+
+  /* Add subtle white background for better readability in light theme */
+  [data-theme="light"] .bg-zinc-900\/90,
+  [data-theme="light"] .bg-zinc-900\/95 {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  [data-theme="light"] .bg-black\/80,
+  [data-theme="light"] .bg-black\/89 {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Make white text black in light theme */
+  [data-theme="light"] .text-white,
+  [data-theme="light"] .text-white\/80,
+  [data-theme="light"] .text-white\/70,
+  [data-theme="light"] .text-white\/60 {
+    color: #000000 !important;
+  }
+
+  /* Adjust opacity for better contrast in light theme */
+  [data-theme="light"] .text-white\/80 {
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  [data-theme="light"] .text-white\/70 {
+    color: rgba(0, 0, 0, 0.7) !important;
+  }
+
+  [data-theme="light"] .text-white\/60 {
+    color: rgba(0, 0, 0, 0.6) !important;
+  }
+
+  /* Handle form inputs and other dark backgrounds in light theme */
+  [data-theme="light"] .bg-zinc-800\/50 {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+
+  [data-theme="light"] .border-white\/20 {
+    border-color: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  [data-theme="light"] .border-white\/50 {
+    border-color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  /* Adjust input text color in light theme */
+  [data-theme="light"] input,
+  [data-theme="light"] textarea {
+    color: #000000 !important;
+  }
+
+  [data-theme="light"] input::placeholder,
+  [data-theme="light"] textarea::placeholder {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  /* Handle gray text in light theme */
+  [data-theme="light"] .text-gray-300 {
+    color: rgba(0, 0, 0, 0.7) !important;
+  }
+
+  /* Adjust project card overlay in light theme */
+  [data-theme="light"] .bg-black\/89 {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  /* Handle hover effects in light theme */
+  [data-theme="light"] .hover\:bg-white\/10:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  [data-theme="light"] .hover\:bg-zinc-800\/90:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+
+  /* Handle Skills component backgrounds in light theme */
+  [data-theme="light"] .bg-zinc-800\/50 {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+
+  [data-theme="light"] .hover\:bg-zinc-700\/50:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  [data-theme="light"] .border-white\/30 {
+    border-color: rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* Handle border color in light theme */
+  [data-theme="light"] .border-\[var\(--border-color\)\] {
+    border-color: var(--border-color) !important;
+  }
+
+  /* Clock component light theme adjustments */
+  [data-theme="light"] .bg-zinc-900\/90 {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+  }
+
+  [data-theme="light"] .text-white {
+    color: #000000 !important;
+  }
+
+  [data-theme="light"] .text-white\/60 {
+    color: rgba(0, 0, 0, 0.6) !important;
+  }
+
+  [data-theme="light"] .text-white\/80 {
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  [data-theme="light"] .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.1) !important;
   }
 
   body{

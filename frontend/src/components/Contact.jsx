@@ -52,7 +52,7 @@ const Contact = () => {
       <div className="grid md:grid-cols-2 gap-8 stagger-children">
         {/* Left Side - Contact Info */}
         <div className="space-y-6 opacity-0 animate-slide-up stagger-children">
-          <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
+          <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--border-color)] hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
             <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
              <a href=""> Buy Me A Coffee⁠♡</a><Coffee size={25} className="text-[var(--primary-color)] animate-wiggle mb-2" />
             </h3>
@@ -74,7 +74,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
+          <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-6 border-[0.2px] border-[var(--border-color)] hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
             <div className="flex items-center gap-2 text-white/80 mb-4">
               <Heart size={16} className="text-[var(--primary-color)] animate-heart" />
               <span>Looking forward to hearing from you!</span>
@@ -86,7 +86,7 @@ const Contact = () => {
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg px-6 py-4 border-[0.2px] border-[var(--primary-color)]/30 hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
+        <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg px-6 py-4 border-[0.2px] border-[var(--border-color)] hover:animate-glow transition-all duration-300 opacity-0 animate-slide-up">
           <form onSubmit={handleSubmit} className="space-y-4 stagger-children">
             <div className="opacity-0 animate-slide-up">
               <label htmlFor="name" className="block text-sm text-white/70 mb-2">

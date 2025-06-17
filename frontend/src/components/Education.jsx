@@ -142,13 +142,13 @@ const Education = () => {
             >
               {/* Timeline line */}
               <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-[var(--primary-color)]/20 group-last:bg-transparent">
-                <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-[0.2px] border-[var(--primary-color)]/30 flex items-center justify-center group-hover:animate-bounce-slow hover-transition transition-all duration-700 ${isVisible ? 'animate-pulse' : ''}`}>
+                <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-[0.2px] border-[var(--border-color)] flex items-center justify-center group-hover:animate-bounce-slow hover-transition transition-all duration-700 ${isVisible ? 'animate-pulse' : ''}`}>
                   <GraduationCap size={12} className="text-[var(--primary-color)]" />
                 </div>
               </div>
 
               {/* Content */}
-              <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-4 border-[0.2px] border-[var(--primary-color)]/30 hover:bg-zinc-800/90 hover-transition hover-scale relative overflow-visible">
+              <div className="bg-zinc-900/90 backdrop-blur-sm rounded-lg p-4 border-[0.2px] border-[var(--border-color)] hover:bg-zinc-800/90 hover-transition hover-scale relative overflow-visible">
                 <h3 className="text-xl font-semibold text-white mb-1 flex items-center gap-2">
                   {edu.degree}
                   <Star size={19} className="text-[var(--primary-color)] animate-sparkle hover-transition" />
@@ -168,7 +168,7 @@ const Education = () => {
                 {/* Achievements Popup */}
                 {isHovered && (
                   <div 
-                    className="mt-4 w-full bg-zinc-900/95 backdrop-blur-sm rounded-lg p-2 border border-[var(--primary-color)]/30 shadow-lg shadow-[var(--primary-color)]/10 z-10 hover-transition animate-slide-in-up"
+                    className="mt-4 w-full bg-zinc-900/95 backdrop-blur-sm rounded-lg p-2 border border-[var(--border-color)] shadow-lg shadow-[var(--primary-color)]/10 z-10 hover-transition animate-slide-in-up"
                   >
                     <div className="flex items-center gap-2 mb-3 text-[var(--primary-color)]">
                       <Trophy size={18} className="animate-bounce hover-transition" />

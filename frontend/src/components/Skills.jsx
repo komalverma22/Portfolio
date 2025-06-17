@@ -45,7 +45,7 @@ const Skills = () => {
   }
 
   return (
-    <div className='mt-10'>
+    <div className='mt-10 '>
       <div className='flex flex-col mb-8'>
         <Heading name="SKILLS & TECHNOLOGIES"/>
         {/* <h1 className='text-3xl md:text-4xl font-bold text-center relative'>
@@ -65,7 +65,7 @@ const Skills = () => {
             {[...skillsData.row1, ...skillsData.row1].map((skill, index) => (
               <div 
                 key={index} 
-                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-white/30 hover:bg-zinc-700/50 transition-all duration-000 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary-color)]/10 '
+                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-[var(--border-color)] hover:bg-zinc-700/50 transition-all duration-000 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary-color)]/10 '
               >
                 <skill.icon 
                   size={20} 
@@ -84,7 +84,7 @@ const Skills = () => {
             {[...skillsData.row2, ...skillsData.row2].map((skill, index) => (
               <div 
                 key={index} 
-                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-white/30 hover:bg-zinc-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary-color)]/10'
+                className='flex items-center gap-2 bg-zinc-800/50 px-4 py-2 rounded border-[0.2px] border-[var(--border-color)] hover:bg-zinc-700/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary-color)]/10'
               >
                 <skill.icon 
                   size={20} 
