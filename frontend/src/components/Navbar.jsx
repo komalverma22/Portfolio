@@ -75,43 +75,69 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation (Slide-in from right) */}
-      {isMenuOpen && (
+      {/* Mobile Navigation (Full Screen Overlay) */}
+      <div 
+        className={`fixed inset-0 z-40 transition-all duration-500 ease-in-out ${
+          isMenuOpen 
+            ? 'opacity-100 backdrop-blur-xl  visible' 
+            : 'opacity-0 backdrop-blur-none bg-transparent invisible'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      >
         <div 
-          className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
-          onClick={() => setIsMenuOpen(false)} // Close menu when clicking outside
+          className={`fixed inset-0 bg-[var(--bg-color)]/95 backdrop-blur-2xl transition-all duration-500 ease-in-out transform ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+          onClick={(e) => e.stopPropagation()}
         >
-          <div 
-            className={`fixed top-0 right-0 h-full w-64 bg-[var(--bg-color)]/95 backdrop-blur-lg border-l border-[var(--text-color)]/20 shadow-lg p-6 transition-transform duration-300 ${
-              isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-            }`}
-            onClick={(e) => e.stopPropagation()} // Prevent clicks inside from closing overlay
-          >
-            <div className="flex justify-end mb-8">
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="hover:opacity-70 transition-opacity duration-300 p-2 text-[var(--text-color)]"
-                aria-label="Close menu"
+          {/* Close button */}
+          <div className="absolute top-6 right-6">
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:opacity-70 transition-all duration-300 p-3 text-[var(--text-color)] hover:bg-white/10 rounded-full"
+              aria-label="Close menu"
+            >
+              <X size={28} />
+            </button>
+          </div>
+
+          {/* Navigation Links - Centered */}
+          <div className='h-auto pt-12 pb-6 flex flex-col  items-center gap-2   bg-black/80 '>
+            {navLinks.map((link, index) => (
+              <a 
+                key={link.label}
+                href={`#${link.href}`}
+                onClick={(e) => handleScroll(e, link.href)}
+                className={`text-3xl font-medium hover:opacity-70 transition-all duration-500 ease-out flex  gap-1 text-xl align-center text-[var(--text-color)] py-4 px-8 rounded-xl hover:bg-white/10 hover:scale-105 transform ${
+                  isMenuOpen 
+                    ? `translate-y-0 opacity-100 delay-[${100 + index * 100}ms]` 
+                    : 'translate-y-8 opacity-0'
+                }`}
+                style={{
+                  transitionDelay: isMenuOpen ? `${200 + index * 100}ms` : '0ms'
+                }}
               >
-                <X size={24} />
-              </button>
-            </div>
-            <div className='flex flex-col items-start py-6 gap-6'>
-              {navLinks.map((link) => (
-                <a 
-                  key={link.label}
-                  href={`#${link.href}`}
-                  onClick={(e) => handleScroll(e, link.href)}
-                  className='text-lg hover:opacity-70 transition-opacity duration-300 flex items-center gap-2 text-[var(--text-color)] w-full py-2 px-4 rounded-md hover:bg-zinc-800/50'
-                >
-                  {link.icon && <img src={link.icon} alt="" className="w-5 h-5" />}
+                {link.icon && (
+                  <img 
+                    src={link.icon} 
+                    alt="" 
+                    className="w-6 h-6 transition-transform duration-300 flex align-center group-hover:scale-110" 
+                  />
+                )}
+                <span className="relative">
                   {link.label}
-                </a>
-              ))}
-            </div>
+                  <span className='absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--text-color)] transition-all duration-300 group-hover:w-full'></span>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* Optional: Add some decorative elements */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div className="w-12 h-[2px] bg-[var(--text-color)]/30 rounded-full"></div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }

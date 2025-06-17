@@ -59,7 +59,7 @@ const Education = () => {
           }
         });
       },
-      { threshold: 0.2 } // Trigger when 20% of the item is visible
+      { threshold: 0.1 } // Trigger when 10% of the item is visible
     );
 
     itemRefs.current.forEach(ref => {
@@ -125,21 +125,24 @@ const Education = () => {
             <div 
               key={index}
               ref={el => itemRefs.current[index] = el}
-              data-index={index} // Used to identify the element in the observer callback
-              className={`relative pl-4 pb-8 group transition-all duration-700 ease-out transform
+              data-index={index}
+              className={`relative pl-4 pb-8 group transition-all duration-1000 ease-out transform
                 ${isVisible 
-                  ? (edu.showAchievementsOnLeft ? 'translate-x-0 opacity-100 animate-slide-in-left' : 'translate-x-0 opacity-100 animate-slide-in-right')
-                  : (edu.showAchievementsOnLeft ? '-translate-x-full opacity-0' : 'translate-x-full opacity-0')
+                  ? 'translate-y-0 opacity-100 scale-100' 
+                  : 'translate-y-12 opacity-0 scale-95'
                 }
                 ${touchDevice ? 'cursor-pointer' : ''}
               `}
+              style={{
+                transitionDelay: `${index * 200}ms`
+              }}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
               onClick={() => handleClick(index)}
             >
               {/* Timeline line */}
               <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-[var(--primary-color)]/20 group-last:bg-transparent">
-                <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-[0.2px] border-[var(--primary-color)]/30 flex items-center justify-center group-hover:animate-bounce-slow hover-transition`}>
+                <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-[0.2px] border-[var(--primary-color)]/30 flex items-center justify-center group-hover:animate-bounce-slow hover-transition transition-all duration-700 ${isVisible ? 'animate-pulse' : ''}`}>
                   <GraduationCap size={12} className="text-[var(--primary-color)]" />
                 </div>
               </div>
@@ -181,8 +184,8 @@ const Education = () => {
                           key={i} 
                           className="flex items-start gap-2 text-md text-white/80 hover:text-white hover-transition animate-fade-in-slow hover:translate-x-1"
                           style={{ 
-                            animationDelay: `${i * 250}ms`,
-                            transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                            animationDelay: `${i * 300}ms`,
+                            transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
                           }}
                         >
                           <span className="text-[var(--primary-color)] mt-1 animate-pulse-slow hover-transition">•</span>

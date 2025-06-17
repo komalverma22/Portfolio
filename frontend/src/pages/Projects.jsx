@@ -55,34 +55,34 @@ const Projects = () => {
   const displayedProjects = showAll ? allProjects : allProjects.slice(0, 2);
 
   return (
-    <div className='container mx-auto'>
-      <div className="my-8 opacity-0 animate-slide-up">
+    <div className='container mx-auto lg:px-0 mt-[-30px]'>
+      <div className="my-4 sm:my-6 opacity-0 animate-slide-up ">
         <Heading name="PROJECTS"/>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 stagger-children">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6  stagger-children ">
         {displayedProjects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
       </div>
       
       {/* View More/Less Button */}
-      <div className="flex justify-center mt-8 opacity-0 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+      <div className="flex justify-center mt-6 sm:mt-8 opacity-0 animate-slide-up" style={{ animationDelay: '0.2s' }}>
         <button
           onClick={() => setShowAll(!showAll)}
-          className="group flex items-center gap-2 px-6 py-2 rounded-lg bg-zinc-900/90 backdrop-blur-sm border-[0.2px] border-[var(--primary-color)]/30 hover:bg-zinc-800/90 transition-all duration-300"
+          className="group flex items-center gap-2 px-3 py-2   sm:px-6 sm:py-2 rounded-lg bg-zinc-900/90 backdrop-blur-sm border-[0.2px] border-[var(--primary-color)]/30 hover:bg-zinc-800/90 transition-all duration-300"
         >
-          <span className="text-white/80 group-hover:text-white transition-colors duration-300">
+          <span className="text-white/80 group-hover:text-white transition-colors duration-300 text-sm sm:text-base">
             {showAll ? 'View Less' : 'View More'}
           </span>
           {showAll ? (
             <ChevronUp 
-              size={18} 
-              className="text-[var(--primary-color)] transition-transform duration-300 group-hover:-translate-y-0.5" 
+              size={16} 
+              className="sm:w-[18px] sm:h-[18px] text-[var(--primary-color)] transition-transform duration-300 group-hover:-translate-y-0.5" 
             />
           ) : (
             <ChevronDown 
-              size={18} 
-              className="text-[var(--primary-color)] transition-transform duration-300 group-hover:translate-y-0.5" 
+              size={16} 
+              className="sm:w-[18px] sm:h-[18px] text-[var(--primary-color)] transition-transform duration-300 group-hover:translate-y-0.5" 
             />
           )}
         </button>

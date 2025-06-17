@@ -50,9 +50,9 @@ const About = () => {
       </div>
 
       <div className='border-[0.2px] border-[var(--primary-color)]/30 backdrop-blur-lg bg-zinc-900 rounded-lg p-6 shadow-lg'>
-        <div className="mb-4 opacity-0 animate-slide-in-left">
+        <div className="mb-4 opacity-0 animate-slide-in-left text-center">
           {/* <div name="About Me" className="text-white"/> */}
-          <h1 className='text-white/80 text-2xl font-bold '>ABOUT ME</h1>
+          <h1 className='text-white/80 text-2xl font-bold text-center'>ABOUT ME</h1>
         </div>
         
         <div className='flex flex-col md:flex-row gap-0 stagger-children'>

@@ -5,21 +5,22 @@ const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add('dark');
-      root.style.setProperty('--bg-color', '#09090b');
-      root.style.setProperty('--text-color', '#ffffff');
-    } else {
-      root.classList.remove('dark');
-      root.style.setProperty('--bg-color', 'var(--primary-color)');
-      root.style.setProperty('--text-color', '#09090b');
-    }
-  }, [isDark]);
+    // Initialize theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setIsDark(savedTheme === 'dark');
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = isDark ? 'light' : 'dark';
+    setIsDark(!isDark);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
 
   return (
     <button
-      onClick={() => setIsDark(!isDark)}
+      onClick={toggleTheme}
       className="relative group rounded-full transition-all duration-300 hover:bg-zinc-800/20"
       aria-label="Toggle theme"
     >
