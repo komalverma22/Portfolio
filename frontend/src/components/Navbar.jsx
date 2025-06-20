@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import HomeImg from "../assets/images/home-logo.png"
 import NotesImg from "../assets/images/notes-logo2.png"
@@ -7,6 +7,28 @@ import ThemeToggle from './ThemeToggle'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'projects', 'education'];
+      let found = 'home';
+      for (let id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom > 100) {
+            found = id;
+            break;
+          }
+        }
+      }
+      setActiveSection(found);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleScroll = (e, targetId) => {
     e.preventDefault();
@@ -31,7 +53,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='fixed top-0 left-0 right-0 z-50  backdrop-blur-lg shadow-lg  duration-300 '>
+    <div className='fixed top-0 left-0 right-0 z-50  backdrop-blur-lg shadow-lg  duration-300'>
       <div className='max-w-[2000px] mx-auto'>
         <div className='flex justify-between items-center h-[60px] px-4 sm:px-6 md:px-8 lg:px-16 xl:px-80'>
           {/* Theme Toggle */}
@@ -53,11 +75,11 @@ const Navbar = () => {
                 key={link.label}
                 href={`#${link.href}`}
                 onClick={(e) => handleScroll(e, link.href)}
-                className='hover:opacity-70 transition-all duration-300 relative group flex items-center gap-1 px-1 py-0.5 text-[var(--text-color)]'
+                className={`hover:opacity-70 transition-all duration-300 relative group flex items-center gap-1 px-1 py-0.5 text-[var(--text-color)] ${activeSection === link.href ? 'font-semibold' : ''}`}
               >
                 {link.icon && <img src={link.icon} alt="" className="w-5 h-5 flex justify-center mb-1" />}
                 {link.label}
-                <span className='absolute bottom-0 left-0 w-0 h-[1px] bg-[var(--text-color)] group-hover:w-full transition-all duration-400'></span>
+                <span className={`absolute bottom-0 left-0 h-[2.0px] bg-[white]/60 transition-all duration-600 ${activeSection === link.href ? 'w-full' : 'w-0'} rounded-full`}></span>
               </a>
             ))}
           </div>
@@ -112,7 +134,7 @@ const Navbar = () => {
                   isMenuOpen 
                     ? `translate-y-0 opacity-100 delay-[${100 + index * 100}ms]` 
                     : 'translate-y-8 opacity-0'
-                }`}
+                } ${activeSection === link.href ? 'font-bold' : ''}`}
                 style={{
                   transitionDelay: isMenuOpen ? `${200 + index * 100}ms` : '0ms'
                 }}
@@ -126,7 +148,7 @@ const Navbar = () => {
                 )}
                 <span className="relative">
                   {link.label}
-                  <span className='absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--text-color)] transition-all duration-300 group-hover:w-full'></span>
+                  <span className={`absolute bottom-0 left-0 h-[1.5px] bg-[var(--primary-color)] transition-all duration-300 ${activeSection === link.href ? 'w-full' : 'w-0'} rounded-full`}></span>
                 </span>
               </a>
             ))}

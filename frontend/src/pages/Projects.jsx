@@ -55,11 +55,11 @@ const Projects = () => {
   const displayedProjects = showAll ? allProjects : allProjects.slice(0, 2);
 
   return (
-    <div className='container mx-auto lg:px-0 mt-[-30px]'>
+    <div className='  container mx-auto lg:px-0 mt-[-30px]'>
       <div className="my-4 sm:my-6 opacity-0 animate-slide-up ">
         <Heading name="PROJECTS"/>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6  stagger-children ">
+      <div className="grid   grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6  stagger-children ">
         {displayedProjects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
